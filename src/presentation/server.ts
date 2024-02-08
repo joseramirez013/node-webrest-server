@@ -1,6 +1,6 @@
-import exp from 'constants';
 import express, { Router } from 'express';
 import path from 'path';
+import compression from 'compression';
 
 interface Options {
     port: number;
@@ -28,6 +28,8 @@ export class Server {
         // Un Middleware es una funcion que se va a ejecutar cuando una peticion pase por alli
         this.app.use( express.json() ); // raw
         this.app.use( express.urlencoded({ extended: true }) ); // x-www-form-urlencoded
+        this.app.use( compression() );
+
 
 
         //* Public Folder
